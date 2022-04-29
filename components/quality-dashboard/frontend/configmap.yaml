@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: quality-dashboard-configmap
+  namespace: quality-dashboard
+data:
+  BACKEND_ROUTE: http://quality-backend-route-quality-dashboard

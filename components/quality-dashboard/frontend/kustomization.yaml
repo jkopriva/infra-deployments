@@ -2,6 +2,15 @@ resources:
 - deployment.yaml
 - service.yaml
 - route.yaml
+- configmap.yaml
 
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
+namespace: quality-dashboard
+
+patchesJson6902:
+  - target:
+        kind: ConfigMap
+        name: quality-dashboard-configmap
+    path: backend-url-patch.yaml

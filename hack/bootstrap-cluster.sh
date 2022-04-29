@@ -125,12 +125,13 @@ if ! kubectl get secret -n quality-dashboard quality-dashboard-secrets &>/dev/nu
     --from-literal=POSTGRESQL_DATABASE=dashboard-database \
     --from-literal=github-token=token-for-read
 fi
-echo "Create backend URL for Quality Dashboard"
-if ! kubectl get configmap -n quality-dashboard quality-dashboard-configmap &>/dev/null; then
-  kubectl create configmap quality-dashboard-configmap \
-    --namespace=quality-dashboard \
-    --from-literal=BACKEND_ROUTE=$(oc whoami --show-console|sed 's|https://console-openshift-console|http://quality-backend-route-quality-dashboard|')
-fi
+# echo "Create backend URL for Quality Dashboard"
+# if ! kubectl get configmap -n quality-dashboard quality-dashboard-configmap &>/dev/null; then
+#   kubectl create configmap quality-dashboard-configmap \
+#     --namespace=quality-dashboard \
+#     --from-literal=
+#     =$(oc whoami --show-console|sed 's|https://console-openshift-console|http://quality-backend-route-quality-dashboard|')
+# fi
 
 echo
 echo "Setting Cluster Mode: ${MODE:-Upstream}"
