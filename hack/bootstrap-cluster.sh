@@ -113,7 +113,7 @@ if ! kubectl get secret -n gitops gitops-postgresql-staging &>/dev/null; then
 fi
 
 echo
-echo "Setting secrets and config map for Quality Dashboard"
+echo "Setting secrets for Quality Dashboard"
 if ! kubectl get namespace quality-dashboard &>/dev/null; then
   kubectl create namespace quality-dashboard
 fi
@@ -121,15 +121,11 @@ if ! kubectl get secret -n quality-dashboard quality-dashboard-secrets &>/dev/nu
   kubectl create secret generic quality-dashboard-secrets \
     --namespace=quality-dashboard \
     --from-literal=rds-endpoint=REPLACE_WITH_RDS_ENDPOINT \
+    --from-literal=POSTGRES_USER=postgres \
+    --from-literal=POSTGRES_PASSWORD=$(openssl rand -base64 20) \
+    --from-literal=POSTGRESQL_DATABASE=quality \
     --from-literal=github-token=REPLACE_GITHUB_TOKEN
 fi
-# echo "Create backend URL for Quality Dashboard"
-# if ! kubectl get configmap -n quality-dashboard quality-dashboard-configmap &>/dev/null; then
-#   kubectl create configmap quality-dashboard-configmap \
-#     --namespace=quality-dashboard \
-#     --from-literal=
-#     =$(oc whoami --show-console|sed 's|https://console-openshift-console|http://quality-backend-route-quality-dashboard|')
-# fi
 
 echo
 echo "Setting Cluster Mode: ${MODE:-Upstream}"

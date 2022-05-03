@@ -46,6 +46,21 @@ spec:
                 secretKeyRef:
                   name: quality-dashboard-secrets
                   key: rds-endpoint
+            - name: POSTGRES_ENT_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: quality-dashboard-secrets
+                  key: POSTGRESQL_DATABASE
+            - name: POSTGRES_ENT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: quality-dashboard-secrets
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_ENT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: quality-dashboard-secrets
+                  key: POSTGRES_USER
             - name: GITHUB_TOKEN
               valueFrom:
                 secretKeyRef:
