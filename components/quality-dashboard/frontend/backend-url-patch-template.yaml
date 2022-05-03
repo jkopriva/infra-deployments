@@ -1,3 +1,0 @@
-- op: replace
-  path: /data/BACKEND_ROUTE
-  value: $BACKEND_ROUTE
