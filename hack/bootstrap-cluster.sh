@@ -122,7 +122,7 @@ if ! kubectl get secret -n quality-dashboard quality-dashboard-secrets &>/dev/nu
     --namespace=quality-dashboard \
     --from-literal=rds-endpoint=REPLACE_WITH_RDS_ENDPOINT \
     --from-literal=POSTGRES_USER=postgres \
-    --from-literal=POSTGRES_PASSWORD=$(openssl rand -base64 20) \
+    --from-literal=POSTGRES_PASSWORD=REPLACE_DB_PASSWORD \
     --from-literal=POSTGRESQL_DATABASE=quality \
     --from-literal=github-token=REPLACE_GITHUB_TOKEN
 fi

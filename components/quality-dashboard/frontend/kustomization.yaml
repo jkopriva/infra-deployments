@@ -2,21 +2,13 @@ resources:
 - deployment.yaml
 - service.yaml
 - route.yaml
-- configmap.yaml
 
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: quality-dashboard
 
-# patchesJson6902:
-#   - target:
-#         kind: ConfigMap
-#         name: quality-dashboard-configmap
-#     path: backend-url-patch.yaml
-
-patches:
-  - target:
-      kind: ConfigMap
-      name: quality-dashboard-configmap
-    path:  backend-url-patch.json
+configMapGenerator:
+- name: quality-dashboard-configmap
+  literals:
+  - BACKEND_ROUTE=https://quality-backend-route-quality-dashboard.apps.appstudio-stage.x99m.p1.openshiftapps.com

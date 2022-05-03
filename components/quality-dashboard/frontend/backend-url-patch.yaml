@@ -1,3 +1,0 @@
-- op: add
-  path: /data/BACKEND_ROUTE
-  value: https://quality-backend-route-quality-dashboard.apps.appstudio-stage.x99m.p1.openshiftapps.com

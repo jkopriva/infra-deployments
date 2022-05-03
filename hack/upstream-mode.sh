@@ -18,7 +18,3 @@ $ROOT/hack/util-set-github-org ""
 # use an external API server for authentication purposes of SPI. This defaults to the address of DevSandbox proxy.
 SPI_API_SERVER=${SPI_API_SERVER-'https://api-toolchain-host-operator.apps.appstudio-stage.x99m.p1.openshiftapps.com:443'}
 $ROOT/hack/util-set-spi-api-server.sh "${SPI_API_SERVER}"
-
-# set BACKEND_ROUTE for quality dashboard
-BACKEND_ROUTE='https://quality-backend-route-quality-dashboard.apps.appstudio-stage.x99m.p1.openshiftapps.com'
-$ROOT/hack/util-set-quality-dashboard-backend-route.sh "${BACKEND_ROUTE}"
