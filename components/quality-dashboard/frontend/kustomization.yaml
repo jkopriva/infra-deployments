@@ -19,4 +19,4 @@ patches:
   - target:
       kind: ConfigMap
       name: quality-dashboard-configmap
-    path:  backend-url-patch.yaml.json
+    path:  backend-url-patch.json
