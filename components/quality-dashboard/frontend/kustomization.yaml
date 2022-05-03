@@ -9,8 +9,14 @@ kind: Kustomization
 
 namespace: quality-dashboard
 
-patchesJson6902:
+# patchesJson6902:
+#   - target:
+#         kind: ConfigMap
+#         name: quality-dashboard-configmap
+#     path: backend-url-patch.yaml
+
+patches:
   - target:
-        kind: ConfigMap
-        name: quality-dashboard-configmap
-    path: backend-url-patch.yaml
+      kind: ConfigMap
+      name: quality-dashboard-configmap
+    path:  backend-url-patch.yaml.json
