@@ -37,23 +37,15 @@ spec:
           name: quality-backend-dashboard
           command: ["/root/qe-dashboard-backend"]
           env:
+            - name: MODE_SSL
+              value: "disable"
+            - name: MAX_CONNECTIONS
+              value: "100"
             - name: POSTGRES_ENT_HOST
-              value: "postgres-service"
-            - name: POSTGRES_ENT_DATABASE
               valueFrom:
                 secretKeyRef:
                   name: quality-dashboard-secrets
-                  key: POSTGRESQL_DATABASE
-            - name: POSTGRES_ENT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: quality-dashboard-secrets
-                  key: POSTGRES_PASSWORD
-            - name: POSTGRES_ENT_USER
-              valueFrom:
-                secretKeyRef:
-                  name: quality-dashboard-secrets
-                  key: POSTGRES_USER
+                  key: rds-endpoint
             - name: GITHUB_TOKEN
               valueFrom:
                 secretKeyRef:

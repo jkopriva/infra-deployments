@@ -25,13 +25,16 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres-service
+  name: pgweb-service
   namespace: quality-dashboard
   labels:
-    app: postgresql-dashboard
+    service: quality-backend-pg-web
 spec:
   type: NodePort
   ports:
-   - port: 5432
+   - name: "http"
+     port: 8081
+     protocol: TCP
+     targetPort: 8081
   selector:
-   app: postgresql-dashboard
+   app: quality-backend-pg-web

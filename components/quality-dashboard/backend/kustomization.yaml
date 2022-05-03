@@ -1,6 +1,6 @@
 resources:
-- postgres.yaml
 - deployment.yaml
+- pgweb.yaml
 - service.yaml
 - route.yaml
 
