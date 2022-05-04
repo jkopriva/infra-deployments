@@ -21,20 +21,3 @@ spec:
     app.kubernetes.io/component: quality-backend
     app.kubernetes.io/instance: quality-dashboard
     app.kubernetes.io/name: quality-dashboard
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: pgweb-service
-  namespace: quality-dashboard
-  labels:
-    service: quality-backend-pg-web
-spec:
-  type: NodePort
-  ports:
-   - name: "http"
-     port: 8081
-     protocol: TCP
-     targetPort: 8081
-  selector:
-   app: quality-backend-pg-web
