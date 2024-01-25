@@ -4,4 +4,5 @@ resources:
 - grafana-operator.yaml
 - grafana-app.yaml
 - dashboards
-- https://github.com/redhat-appstudio/o11y/config/probes/monitoring/grafana/base?ref=ff478366bb92b0a9d7e4eb1625194e0cce138185
+- https://github.com/redhat-appstudio/o11y/config/probes/monitoring/grafana/base?ref=c1b5f5e63ec50c33d64ccc0407ea096c0f8970c8
+- https://github.com/redhat-appstudio/o11y/config/exporters/monitoring/grafana/base?ref=c1b5f5e63ec50c33d64ccc0407ea096c0f8970c8
